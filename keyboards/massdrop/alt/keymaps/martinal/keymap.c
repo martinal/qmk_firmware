@@ -12,6 +12,20 @@ enum alt_keycodes {
     MD_BOOT,               //Restart into bootloader after hold timeout
 };
 
+// Add this to config.h:
+// #define TAPPING_TERM_PER_KEY
+// and this here:
+/* uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) { */
+/*     switch (keycode) { */
+/*         case SFT_T(KC_SPC): */
+/*             return TAPPING_TERM + 1250; */
+/*         case LT(1, KC_GRV): */
+/*             return 130; */
+/*         default: */
+/*             return TAPPING_TERM; */
+/*     } */
+/* } */
+
 enum my_layers {
     L_DF = 0, // Default
     L_FN = 1, // Function
@@ -28,8 +42,16 @@ enum my_layers {
 #define TO_DEF TO(L_DF)
 
 // Mod-taps
-#define ESC_CTL MT(MOD_LCTL, KC_ESC)
+
+// Hold tab for meta-layer
 #define TAB_LAY LT(L_ML, KC_TAB)
+#define LAY_LAY MO(L_ML)
+
+// Tap caps lock for esc or escape, hold for control
+#define ESC_CTL MT(MOD_LCTL, KC_ESC)
+#define DEF_CTL LT(L_DF, KC_ESC)
+
+// https://docs.qmk.fm/feature_layers#switching-and-toggling-layers
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // // Default base layer
@@ -75,10 +97,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Numbers
     [L_NU] = LAYOUT_65_ansi_blocker(
          TO_DEF, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, _______,    KC_7,    KC_8,    KC_9, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, _______,    KC_4,    KC_5,    KC_6, _______, _______,          _______, _______,
+        LAY_LAY, _______, _______, _______, _______, _______, _______,    KC_7,    KC_8,    KC_9, _______, _______, _______, _______, _______,
+        DEF_CTL, _______, _______, _______, _______, _______, _______,    KC_4,    KC_5,    KC_6, _______, _______,          _______, _______,
         _______, _______, _______, _______, _______, _______,    KC_0,    KC_1,    KC_2,    KC_3, _______, _______,          _______, _______,
-        _______, _______, _______,                            _______,                            _______, _______, _______, _______, _______
+        _______, _______, _______,                             TO_DEF,                            _______, _______, _______, _______, _______
     ),
     /*
     // Mouse
@@ -209,3 +231,4 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return true; //Process all other keycodes normally
     }
 }
+

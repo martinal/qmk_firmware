@@ -1,8 +1,8 @@
 Keyboard plan:
-- Make Tab into Meta-layer on hold, Tab on tap
+- Configure https://docs.qmk.fm/tap_hold
+- rgpb tuning, defaults, layer specific
 - Setup tap hold homerow mods
 - Norwegian letters from english layout?
-- Setup meta layer for layout shifting without thumb cluster
 - Setup numbers layer
 - Setup symbols layer
 - Setup navigation layer
@@ -14,19 +14,34 @@ Keyboard plan:
 - Consider leader key
 
 Done:
+- Config:
+    - reduce tapping term in config
 - On default layer:
     - Make CapsLock into Ctrl on hold, Esc on tap
+    - Make Tab into Meta-layer on hold, Tab on tap
 - On fn layer:
     - Add capslock to fn layer
     - Add tab to fn layer
-- Add to-default-layer on esc in all layers
-- Add metalayer
+- Setup meta layer for layout shifting without thumb cluster
+    - Add to-default-layer on esc in all layers
+    - Add metalayer
 - Add numbers layer
+    - Trigger on meta layer with tab+N
 
 
 
-
-
+|Modifier  |Description                             |
+|----------|----------------------------------------|
+|`MOD_LCTL`|Left Control                            |
+|`MOD_LSFT`|Left Shift                              |
+|`MOD_LALT`|Left Alt                                |
+|`MOD_LGUI`|Left GUI (Windows/Command/Meta key)     |
+|`MOD_RCTL`|Right Control                           |
+|`MOD_RSFT`|Right Shift                             |
+|`MOD_RALT`|Right Alt (AltGr)                       |
+|`MOD_RGUI`|Right GUI (Windows/Command/Meta key)    |
+|`MOD_HYPR`|Hyper (Left Control, Shift, Alt and GUI)|
+|`MOD_MEH` |Meh (Left Control, Shift, and Alt)      |
 
 
 Key	Description
