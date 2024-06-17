@@ -1,5 +1,6 @@
 Configuration docs:
 https://docs.qmk.fm/tap_hold
+https://docs.qmk.fm/features/mouse_keys
 
 Keyboard plan:
 - rgpb tuning, layer specific
