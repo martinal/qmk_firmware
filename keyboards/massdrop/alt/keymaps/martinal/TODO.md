@@ -1,9 +1,10 @@
+Configuration docs:
+https://docs.qmk.fm/tap_hold
+
 Keyboard plan:
-- Configure https://docs.qmk.fm/tap_hold
-- rgpb tuning, defaults, layer specific
+- rgpb tuning, layer specific
 - Setup tap hold homerow mods
 - Norwegian letters from english layout?
-- Setup numbers layer
 - Setup symbols layer
 - Setup navigation layer
 - Setup F# layer
@@ -16,15 +17,20 @@ Keyboard plan:
 Done:
 - Config:
     - reduce tapping term in config
+    - use permissive hold
 - On default layer:
     - Make CapsLock into Ctrl on hold, Esc on tap
     - Make Tab into Meta-layer on hold, Tab on tap
 - On fn layer:
     - Add capslock to fn layer
     - Add tab to fn layer
-- Setup meta layer for layout shifting without thumb cluster
-    - Add to-default-layer on esc in all layers
+- On meta layer (for layout shifting without thumb cluster)
     - Add metalayer
+- On all custom layers
+    - esc = to-default-layer
+    - caps-lock = to-default-layer
+    - tab = meta layer
+    - stop fall-through of unmapped keys
 - Add numbers layer
     - Trigger on meta layer with tab+N
 
