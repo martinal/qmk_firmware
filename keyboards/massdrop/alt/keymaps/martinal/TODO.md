@@ -9,7 +9,6 @@ Keyboard plan:
 - Setup navigation layer
 - Setup F# layer
 - Setup media keys layer
-- Setup mouse layer
 - Test autoshift
 - Test capsword
 - Consider leader key
@@ -31,9 +30,10 @@ Done:
     - caps-lock = to-default-layer
     - tab = meta layer
     - stop fall-through of unmapped keys
-- Add numbers layer
+- Add numbers layer (N)
     - Trigger on meta layer with tab+N
-
+- Add mouse layer (M)
+    - Trigger on meta layer with tab+M
 
 
 |Modifier  |Description                             |
