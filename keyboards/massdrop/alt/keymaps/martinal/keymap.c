@@ -3,13 +3,13 @@
 // #include "/home/msa/qmk_firmware/build/obj_massdrop_alt_martinal/src/default_keyboard.h"
 
 enum alt_keycodes {
-    U_T_AUTO = SAFE_RANGE, //USB Extra Port Toggle Auto Detect / Always Active
-    U_T_AGCR,              //USB Toggle Automatic GCR control
-    DBG_TOG,               //DEBUG Toggle On / Off
-    DBG_MTRX,              //DEBUG Toggle Matrix Prints
-    DBG_KBD,               //DEBUG Toggle Keyboard Prints
-    DBG_MOU,               //DEBUG Toggle Mouse Prints
-    MD_BOOT,               //Restart into bootloader after hold timeout
+    U_T_AUTO = SAFE_RANGE, // USB Extra Port Toggle Auto Detect / Always Active
+    U_T_AGCR,              // USB Toggle Automatic GCR control
+    DBG_TOG,               // DEBUG Toggle On / Off
+    DBG_MTRX,              // DEBUG Toggle Matrix Prints
+    DBG_KBD,               // DEBUG Toggle Keyboard Prints
+    DBG_MOU,               // DEBUG Toggle Mouse Prints
+    MD_BOOT,               // Restart into bootloader after hold timeout
 };
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
@@ -105,12 +105,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Metalayer
     [L_ML] = LAYOUT_65_ansi_blocker(
          TO_DEF, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX,
-        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,TO(L_NU), TO(L_MS),XXXXXXX, XXXXXXX, XXXXXXX, _______,          XXXXXXX, XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, TO(L_ME),TO(L_MS),XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, TO(L_FX),TO(L_AR),TO(L_NU),TO(L_SY),XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX,
+        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,          XXXXXXX, XXXXXXX,
         _______, _______, _______,                            _______,                            _______, _______, XXXXXXX, XXXXXXX, XXXXXXX
     ),
-    // Numbers
+    // K L_NU Numbers
     [L_NU] = LAYOUT_65_ansi_blocker(
          TO_DEF, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         LAY_LAY, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    KC_7,    KC_8,    KC_9, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
@@ -118,7 +118,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    KC_0,    KC_1,    KC_2,    KC_3, XXXXXXX, _______,          XXXXXXX, XXXXXXX,
         _______, _______, _______,                             TO_DEF,                            _______, _______, XXXXXXX, XXXXXXX, XXXXXXX
     ),
-    // Mouse
+    // O L_MS Mouse
     [L_MS] = LAYOUT_65_ansi_blocker(
          TO_DEF, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         LAY_LAY, XXXXXXX, KC_ACL0, KC_ACL1, KC_ACL2, XXXXXXX, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
@@ -126,31 +126,43 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,          XXXXXXX, XXXXXXX,
         _______, _______, _______,                             TO_DEF,                            _______, _______, XXXXXXX, XXXXXXX, XXXXXXX
     ),
-    /*
-    // Arrows
+    // J L_AR Arrows
     [L_AR] = LAYOUT_65_ansi_blocker(
+         TO_DEF, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        LAY_LAY, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        DEF_CTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX,
+        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,          XXXXXXX, XXXXXXX,
+        _______, _______, _______,                             TO_DEF,                            _______, _______, XXXXXXX, XXXXXXX, XXXXXXX
     ),
-    */
-    /*
-    // Fx keys
+    // H L_FX Fx keys
     [L_FX] = LAYOUT_65_ansi_blocker(
+         TO_DEF, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        LAY_LAY, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        DEF_CTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX,
+        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,          XXXXXXX, XXXXXXX,
+        _______, _______, _______,                             TO_DEF,                            _______, _______, XXXXXXX, XXXXXXX, XXXXXXX
     ),
-    */
-    /*
-    // Media keys
+    // I L_ME Media keys
     [L_ME] = LAYOUT_65_ansi_blocker(
+         TO_DEF, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        LAY_LAY, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        DEF_CTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX,
+        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,          XXXXXXX, XXXXXXX,
+        _______, _______, _______,                             TO_DEF,                            _______, _______, XXXXXXX, XXXXXXX, XXXXXXX
     ),
-    */
-    /*
-    // Symbols
+    // L L_SY Symbols
     [L_SY] = LAYOUT_65_ansi_blocker(
+         TO_DEF, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        LAY_LAY, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        DEF_CTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX,
+        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,          XXXXXXX, XXXXXXX,
+        _______, _______, _______,                             TO_DEF,                            _______, _______, XXXXXXX, XXXXXXX, XXXXXXX
     ),
-    */
 };
 
-#define MODS_SHIFT  (get_mods() & MOD_BIT(KC_LSFT) || get_mods() & MOD_BIT(KC_RSFT))
-#define MODS_CTRL  (get_mods() & MOD_BIT(KC_LCTL) || get_mods() & MOD_BIT(KC_RCTL))
-#define MODS_ALT  (get_mods() & MOD_BIT(KC_LALT) || get_mods() & MOD_BIT(KC_RALT))
+#define MODS_SHIFT (get_mods() & MOD_BIT(KC_LSFT) || get_mods() & MOD_BIT(KC_RSFT))
+#define MODS_CTRL (get_mods() & MOD_BIT(KC_LCTL) || get_mods() & MOD_BIT(KC_RCTL))
+#define MODS_ALT (get_mods() & MOD_BIT(KC_LALT) || get_mods() & MOD_BIT(KC_RALT))
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     static uint32_t key_timer;
@@ -197,32 +209,27 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
         case RGB_TOG:
             if (record->event.pressed) {
-              switch (rgb_matrix_get_flags()) {
-                case LED_FLAG_ALL: {
-                    rgb_matrix_set_flags(LED_FLAG_KEYLIGHT | LED_FLAG_MODIFIER | LED_FLAG_INDICATOR);
-                    rgb_matrix_set_color_all(0, 0, 0);
-                  }
-                  break;
-                case (LED_FLAG_KEYLIGHT | LED_FLAG_MODIFIER | LED_FLAG_INDICATOR): {
-                    rgb_matrix_set_flags(LED_FLAG_UNDERGLOW);
-                    rgb_matrix_set_color_all(0, 0, 0);
-                  }
-                  break;
-                case LED_FLAG_UNDERGLOW: {
-                    rgb_matrix_set_flags(LED_FLAG_NONE);
-                    rgb_matrix_disable_noeeprom();
-                  }
-                  break;
-                default: {
-                    rgb_matrix_set_flags(LED_FLAG_ALL);
-                    rgb_matrix_enable_noeeprom();
-                  }
-                  break;
-              }
+                switch (rgb_matrix_get_flags()) {
+                    case LED_FLAG_ALL: {
+                        rgb_matrix_set_flags(LED_FLAG_KEYLIGHT | LED_FLAG_MODIFIER | LED_FLAG_INDICATOR);
+                        rgb_matrix_set_color_all(0, 0, 0);
+                    } break;
+                    case (LED_FLAG_KEYLIGHT | LED_FLAG_MODIFIER | LED_FLAG_INDICATOR): {
+                        rgb_matrix_set_flags(LED_FLAG_UNDERGLOW);
+                        rgb_matrix_set_color_all(0, 0, 0);
+                    } break;
+                    case LED_FLAG_UNDERGLOW: {
+                        rgb_matrix_set_flags(LED_FLAG_NONE);
+                        rgb_matrix_disable_noeeprom();
+                    } break;
+                    default: {
+                        rgb_matrix_set_flags(LED_FLAG_ALL);
+                        rgb_matrix_enable_noeeprom();
+                    } break;
+                }
             }
             return false;
         default:
-            return true; //Process all other keycodes normally
+            return true; // Process all other keycodes normally
     }
 }
-
