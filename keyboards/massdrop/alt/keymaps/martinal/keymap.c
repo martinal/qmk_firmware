@@ -12,19 +12,16 @@ enum alt_keycodes {
     MD_BOOT,               //Restart into bootloader after hold timeout
 };
 
-// Add this to config.h:
-// #define TAPPING_TERM_PER_KEY
-// and this here:
-/* uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) { */
-/*     switch (keycode) { */
-/*         case SFT_T(KC_SPC): */
-/*             return TAPPING_TERM + 1250; */
-/*         case LT(1, KC_GRV): */
-/*             return 130; */
-/*         default: */
-/*             return TAPPING_TERM; */
-/*     } */
-/* } */
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        /* case SFT_T(KC_SPC): */
+        /*     return TAPPING_TERM + 1250; */
+        /* case LT(1, KC_GRV): */
+        /*     return 130; */
+        default:
+            return TAPPING_TERM;
+    }
+}
 
 enum my_layers {
     L_DF = 0, // Default
@@ -51,6 +48,25 @@ enum my_layers {
 #define ESC_CTL MT(MOD_LCTL, KC_ESC)
 #define DEF_CTL LT(L_DF, KC_ESC)
 
+// No-op
+#define MC_A     KC_A
+#define MC_S     KC_S
+#define MC_D     KC_D
+#define MC_F     KC_F
+#define MC_J     KC_J
+#define MC_K     KC_K
+#define MC_L     KC_L
+#define MC_SCLN  KC_SCLN
+// GASC
+/* #define MC_A     MT(MOD_LGUI, KC_A) */
+/* #define MC_S     MT(MOD_LALT, KC_S) */
+/* #define MC_D     MT(MOD_LSFT, KC_D) */
+/* #define MC_F     MT(MOD_LCTL, KC_F) */
+/* #define MC_J     MT(MOD_RCTL, KC_J) */
+/* #define MC_K     MT(MOD_RSFT, KC_K) */
+/* #define MC_L     MT(MOD_LALT, KC_L) */
+/* #define MC_SCLN  MT(MOD_RGUI, KC_SCLN) */
+
 // https://docs.qmk.fm/feature_layers#switching-and-toggling-layers
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -74,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [L_DF] = LAYOUT_65_ansi_blocker(
         KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC, KC_DEL,
         TAB_LAY, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS, KC_HOME,
-        ESC_CTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,          KC_ENT,  KC_PGUP,
+        ESC_CTL, MC_A,    MC_S,    MC_D,    MC_F,    KC_G,    KC_H,    MC_J,    MC_K,    MC_L,    MC_SCLN, KC_QUOT,          KC_ENT,  KC_PGUP,
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,          KC_UP,   KC_PGDN,
         KC_LCTL, KC_LGUI, KC_LALT,                            KC_SPC,                             KC_RALT, MO(L_FN),KC_LEFT, KC_DOWN, KC_RGHT
     ),
