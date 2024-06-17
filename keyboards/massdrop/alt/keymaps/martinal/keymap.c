@@ -40,13 +40,15 @@ enum my_layers {
 
 // Mod-taps
 
-// Hold tab for meta-layer
+// Hold tab for meta-layer, tap for tab
 #define TAB_LAY LT(L_ML, KC_TAB)
+// Hold tab for meta-layer
 #define LAY_LAY MO(L_ML)
 
 // Tap caps lock for esc or escape, hold for control
 #define ESC_CTL MT(MOD_LCTL, KC_ESC)
-#define DEF_CTL LT(L_DF, KC_ESC)
+// Tap caps lock to go back to default layer
+#define DEF_CTL TO(L_DF)
 
 // No-op
 #define MC_A     KC_A
