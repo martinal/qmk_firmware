@@ -2,6 +2,11 @@
 
 // #include "/home/msa/qmk_firmware/build/obj_massdrop_alt_martinal/src/default_keyboard.h"
 
+//
+// Docs:
+// https://docs.qmk.fm/feature_layers#switching-and-toggling-layers
+//
+
 enum alt_keycodes {
     U_T_AUTO = SAFE_RANGE, // USB Extra Port Toggle Auto Detect / Always Active
     U_T_AGCR,              // USB Toggle Automatic GCR control
@@ -50,7 +55,11 @@ enum my_layers {
 // Tap caps lock to go back to default layer
 #define DEF_CTL TO(L_DF)
 
-// No-op
+// Pick homerow mods config
+#define HOMEROW_NOOP
+// #define HOMEROW_GASC
+
+#ifdef HOMEROW_NOOP
 #define MC_A     KC_A
 #define MC_S     KC_S
 #define MC_D     KC_D
@@ -59,17 +68,18 @@ enum my_layers {
 #define MC_K     KC_K
 #define MC_L     KC_L
 #define MC_SCLN  KC_SCLN
-// GASC
-/* #define MC_A     MT(MOD_LGUI, KC_A) */
-/* #define MC_S     MT(MOD_LALT, KC_S) */
-/* #define MC_D     MT(MOD_LSFT, KC_D) */
-/* #define MC_F     MT(MOD_LCTL, KC_F) */
-/* #define MC_J     MT(MOD_RCTL, KC_J) */
-/* #define MC_K     MT(MOD_RSFT, KC_K) */
-/* #define MC_L     MT(MOD_LALT, KC_L) */
-/* #define MC_SCLN  MT(MOD_RGUI, KC_SCLN) */
+#endif
 
-// https://docs.qmk.fm/feature_layers#switching-and-toggling-layers
+#ifdef HOMEROW_GASC
+#define MC_A     MT(MOD_LGUI, KC_A)
+#define MC_S     MT(MOD_LALT, KC_S)
+#define MC_D     MT(MOD_LSFT, KC_D)
+#define MC_F     MT(MOD_LCTL, KC_F)
+#define MC_J     MT(MOD_RCTL, KC_J)
+#define MC_K     MT(MOD_RSFT, KC_K)
+#define MC_L     MT(MOD_LALT, KC_L)
+#define MC_SCLN  MT(MOD_RGUI, KC_SCLN)
+#endif
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // // Default base layer
