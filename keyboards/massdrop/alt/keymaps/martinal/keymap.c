@@ -56,30 +56,7 @@ enum my_layers {
 #define DEF_CTL TO(L_DF)
 
 // Pick homerow mods config
-#define HOMEROW_NOOP
-// #define HOMEROW_GASC
-
-#ifdef HOMEROW_NOOP
-#define MC_A     KC_A
-#define MC_S     KC_S
-#define MC_D     KC_D
-#define MC_F     KC_F
-#define MC_J     KC_J
-#define MC_K     KC_K
-#define MC_L     KC_L
-#define MC_SCLN  KC_SCLN
-#endif
-
-#ifdef HOMEROW_GASC
-#define MC_A     MT(MOD_LGUI, KC_A)
-#define MC_S     MT(MOD_LALT, KC_S)
-#define MC_D     MT(MOD_LSFT, KC_D)
-#define MC_F     MT(MOD_LCTL, KC_F)
-#define MC_J     MT(MOD_RCTL, KC_J)
-#define MC_K     MT(MOD_RSFT, KC_K)
-#define MC_L     MT(MOD_LALT, KC_L)
-#define MC_SCLN  MT(MOD_RGUI, KC_SCLN)
-#endif
+#include "homerow.h"
 
 
 /* QK_DYNAMIC_TAPPING_TERM_PRINT  DT_PRNT	Types the current tapping term, in milliseconds */
@@ -106,9 +83,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Base layer
     [L_DF] = LAYOUT_65_ansi_blocker(
         KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC, KC_DEL,
-        TAB_LAY, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS, KC_HOME,
-        ESC_CTL, MC_A,    MC_S,    MC_D,    MC_F,    KC_G,    KC_H,    MC_J,    MC_K,    MC_L,    MC_SCLN, KC_QUOT,          KC_ENT,  KC_PGUP,
-        KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,          KC_UP,   KC_PGDN,
+        TAB_LAY, MC_Q,    MC_W,    MC_E,    MC_R,    MC_T,    MC_Y,    MC_U,    MC_I,    MC_O,    MC_P,    KC_LBRC, KC_RBRC, KC_BSLS, KC_HOME,
+        ESC_CTL, MC_A,    MC_S,    MC_D,    MC_F,    MC_G,    MC_H,    MC_J,    MC_K,    MC_L,    MC_SCLN, KC_QUOT,          KC_ENT,  KC_PGUP,
+        KC_LSFT, MC_Z,    MC_X,    MC_C,    MC_V,    MC_B,    MC_N,    MC_M,    MC_COMM, MC_DOT,  MC_SLSH, KC_RSFT,          KC_UP,   KC_PGDN,
         KC_LCTL, KC_LGUI, KC_LALT,                            KC_SPC,                             KC_RALT, MO(L_FN),KC_LEFT, KC_DOWN, KC_RGHT
     ),
     // Fn key layer
