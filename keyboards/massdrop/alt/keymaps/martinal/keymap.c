@@ -58,7 +58,6 @@ enum my_layers {
 // Pick homerow mods config
 #include "homerow.h"
 
-
 /* QK_DYNAMIC_TAPPING_TERM_PRINT  DT_PRNT	Types the current tapping term, in milliseconds */
 /* QK_DYNAMIC_TAPPING_TERM_UP     DT_UP	    Increases the current tapping term by DYNAMIC_TAPPING_TERM_INCREMENTms (5ms by default) */
 /* QK_DYNAMIC_TAPPING_TERM_DOWN	  DT_DOWN	Decreases the current tapping term by DYNAMIC_TAPPING_TERM_INCREMENTms (5ms by default) */
@@ -123,8 +122,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // J L_AR Arrows
     [L_AR] = LAYOUT_65_ansi_blocker(
          TO_DEF, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______,
-        LAY_LAY, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______,
-        DEF_CTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          _______, _______,
+        LAY_LAY, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX, XXXXXXX, XXXXXXX, _______, _______,
+        DEF_CTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, XXXXXXX,          _______, _______,
         _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,          _______, _______,
         _______, _______, _______,                             TO_DEF,                            _______, _______, _______, _______, _______
     ),
